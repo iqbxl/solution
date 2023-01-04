@@ -1,3 +1,17 @@
+import argparse
+
+# Create an ArgumentParser object
+parser = argparse.ArgumentParser()
+
+# Add an input file argument
+parser.add_argument("input", help="input file")
+
+# Parse the command line arguments
+args = parser.parse_args()
+
+# Get the input file name
+input_file = args.input
+
 def numIslands(grid: list[list[int]]) -> int:
   rows = len(grid)
   cols = len(grid[0])
@@ -24,7 +38,12 @@ def numIslands(grid: list[list[int]]) -> int:
         dfs(i, j)
   return count
 
+# Try to open the input file
 if __name__ == "__main__":
-  with open('islands.txt', 'r') as file:
-    grid = [[int(c) for c in line.strip()] for line in file]
-  print(numIslands(grid))
+  try:
+    with open(input_file, 'r') as file:
+      grid = [[int(c) for c in line.strip()] for line in file]
+    print(numIslands(grid))
+  except FileNotFoundError:
+    print("Error: input file does not exist")
+    exit(1)
