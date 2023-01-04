@@ -1,14 +1,3 @@
-grid = [
-  [0,0,0,0,0,0,0,0,0],
-  [0,1,0,0,0,0,0,0,0],
-  [1,1,1,0,0,0,1,0,0],
-  [1,1,0,0,0,1,1,1,0],
-  [0,0,0,0,0,1,1,0,0],
-  [0,0,1,0,0,0,0,0,0],
-  [1,1,0,0,0,0,0,0,0],
-  [0,0,0,0,0,1,1,0,0]
-]
-
 def numIslands(grid: list[list[int]]) -> int:
   rows = len(grid)
   cols = len(grid[0])
@@ -36,4 +25,6 @@ def numIslands(grid: list[list[int]]) -> int:
   return count
 
 if __name__ == "__main__":
+  with open('islands.txt', 'r') as file:
+    grid = [[int(c) for c in line.strip()] for line in file]
   print(numIslands(grid))
