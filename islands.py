@@ -22,6 +22,10 @@ def numIslands(grid: list[list[int]]) -> int:
     dfs(i - 1, j)
     dfs(i, j + 1)
     dfs(i, j - 1)
+    dfs(i + 1, j + 1)
+    dfs(i + 1, j - 1)
+    dfs(i - 1, j + 1)
+    dfs(i - 1, j - 1)
 
   count = 0
   for i in range(rows):
