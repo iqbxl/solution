@@ -11,7 +11,7 @@ fi
 input_file=$1
 
 # Build Docker image
-docker build -t islands_image .
+docker build -qt islands_image .
 
 # Run Docker image
 docker run -it \
